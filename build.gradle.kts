@@ -19,6 +19,8 @@ configurations {
 
 repositories {
 	mavenCentral()
+	jcenter()
+	maven { url = uri("https://jitpack.io" )}
 }
 
 dependencies {
@@ -31,6 +33,7 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	compile("com.github.jkcclemens:khttp:0.1.0")
 }
 
 tasks.withType<KotlinCompile> {

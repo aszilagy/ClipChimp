@@ -16,6 +16,7 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
+src/main/kotlin/com/clipchimp/web/redditConstruct/RedditAuthClient.kt
 
 ### IntelliJ IDEA ###
 .idea
