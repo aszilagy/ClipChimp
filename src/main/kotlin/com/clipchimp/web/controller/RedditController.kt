@@ -27,6 +27,9 @@ class RedditController(private val redditService: RedditService) {
     }
     */
 
+    /*
+     * TODO: Re-factor this out to a user service layer (with repository)
+     */
     @GetMapping("/user")
     fun getUser(@RequestParam(value = "id") userId: String): String {
         var redditUserApi = "https://www.reddit.com/api/multi/user/$userId"
