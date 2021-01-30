@@ -1,8 +1,10 @@
 package com.clipchimp.web.controller
 
 import com.clipchimp.web.redditConstruct.RedditAuthClient
+import com.clipchimp.web.repository.RedditData
 import com.clipchimp.web.service.RedditService
 import khttp.responses.Response
+import org.json.JSONArray
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -10,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController()
 @RequestMapping("/api/reddit")
-class RedditController {
-    val redditService = RedditService()
+class RedditController(private val redditService: RedditService) {
 
     @GetMapping("/healthcheck")
     fun healthcheck(): String {
@@ -44,7 +45,7 @@ class RedditController {
 
     @GetMapping("/subreddit/getTopN")
     fun getSubredditHotTopN(@RequestParam(value = "subRedditName") subRedditName: String,
-                            @RequestParam(value = "topN") topN: Int): String {
+                            @RequestParam(value = "topN") topN: Int): List<RedditData> {
         return redditService.getSubredditTopNPosts(subRedditName, topN)
     }
 }

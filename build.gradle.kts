@@ -19,6 +19,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 	jcenter()
 	maven { url = uri("https://jitpack.io" )}
 }
@@ -29,11 +30,17 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	compile("com.github.jkcclemens:khttp:0.1.0")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("com.github.jkcclemens:khttp:0.1.0")
+
+	implementation("mysql:mysql-connector-java")
+	testImplementation( "org.springframework.boot:spring-boot-starter-test")
+	runtimeOnly("com.oracle:ojdbc11")
 }
 
 tasks.withType<KotlinCompile> {
